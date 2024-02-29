@@ -1,5 +1,6 @@
 * {
   /* box-sizing: border-box; */
+  
 }
 
 :focus {
@@ -8,7 +9,14 @@
 
 body {
   /* TODO */
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background-image: linear-gradient(to bottom right, red, yellow);
 }
+
 
 input {
  /* TODO */
@@ -16,13 +24,20 @@ input {
 
 .search-container {
  /* TODO */
+
 }
+
+
 .search-container input,
 .search-container .suggestions {
   /* TODO */
+  margin: 20% auto;
+  display: block;
+
 }
 .search-container input {
  /* TODO */
+
 }
 .search-container .suggestions {
    /* TODO */
