@@ -1,3 +1,6 @@
+// Jonathan Lahmann
+// 2/29/2024
+
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
 
@@ -12,16 +15,15 @@ function search(str) {
 			results.push(element);
 		}
 	})
-
-	// TODO
 	
 	return results;
 }
 
 function searchHandler(e) {
-	// TODO
 	let inputVal = input.value;
 	let results = search(inputVal);
+
+	while(suggestions.firstChild) suggestions.removeChild(suggestions.firstChild);
 
 	if (inputVal.length > 0) {
 		showSuggestions(results, inputVal);
@@ -29,22 +31,40 @@ function searchHandler(e) {
 }
 
 function showSuggestions(results, inputVal) {
-	// TODO
-	let suggestionsList = [];
 
+	let suggestionsList = [];
+	
 	results.forEach(element => {
-		suggestionsList.push(element.replace(inputVal, inputVal.bold()));
+		let indexOf = element.toLowerCase().indexOf(inputVal.toLowerCase());
+		
+		let replacement = element.substr(indexOf, inputVal.length);
+
+		suggestionsList.push(element.replace(replacement, replacement.bold()));
 	});
+
+	let i = 0; //tracker for classnames to remove later.
 
 	suggestionsList.forEach(element => {
 		let addition = document.createElement("li");
-		addition.innerText = element;
+		addition.innerHTML = element;
+		addition.id = results[i];
 		suggestions.appendChild(addition);
+		i++;
 	})
 }
 
 function useSuggestion(e) {
 	// TODO
+	let chosen = "";
+
+	if (e.target.nodeName == "LI") {
+		chosen = e.target;
+	} else {
+		chosen = e.target.parentNode;
+	}
+	input.value = chosen.id;
+
+	while(suggestions.firstChild) suggestions.removeChild(suggestions.firstChild);
 }
 
 input.addEventListener('keyup', searchHandler);

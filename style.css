@@ -1,11 +1,8 @@
-* {
-  /* box-sizing: border-box; */
-  
-}
+/*
+Jonathan Lahmann
+2/29/2024
+*/
 
-:focus {
- /* TODO */
-}
 
 body {
   /* TODO */
@@ -18,12 +15,16 @@ body {
 }
 
 
-input {
- /* TODO */
-}
+
 
 .search-container {
  /* TODO */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ margin: 20% auto;
+ width: 360px;
 
 }
 
@@ -31,31 +32,37 @@ input {
 .search-container input,
 .search-container .suggestions {
   /* TODO */
-  margin: 20% auto;
-  display: block;
+  display: flexbox;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  left: 13%;
+  margin-top: -5%;
+  width: 360px;
 
 }
 .search-container input {
  /* TODO */
 
-}
-.search-container .suggestions {
-   /* TODO */
+ margin-top: 20%;
+
+ position: relative;
+
 }
 
-ul {
-  /* TODO */
-}
-ul.has-suggestions {
-  /* TODO */
-}
 ul li {
   /* TODO */
+  display: flex;
+  justify-content: start;
+  transition-duration: 0.5s;
+  background-color:darkorange;
+  
+  border: 1px solid orangered;
+
 }
 ul li:hover {
   /* TODO */
-}
+  cursor: pointer;
+  background: red;
 
-input {
-   /* TODO */
 }
